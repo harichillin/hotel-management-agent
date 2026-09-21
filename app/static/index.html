@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hotel Management Agent</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-content">
+        <div class="logo-area">
+          <span class="hotel-icon">🏨</span>
+          <div>
+            <h1>Hotel Management Agent</h1>
+            <p class="subtitle">AI-Powered Concierge & Operations Assistant</p>
+          </div>
+        </div>
+        <div class="status-badge" id="backend-status">
+          <span class="status-dot"></span> System Online
+        </div>
+      </div>
+    </header>
+
+    <!-- Quick Actions / Suggestions -->
+    <div class="quick-actions-bar">
+      <span class="quick-label">Try asking:</span>
+      <div class="chips-container">
+        <button class="chip" onclick="sendPrompt('Show available rooms')">Show available rooms</button>
+        <button class="chip" onclick="sendPrompt('Are there any deluxe rooms available?')">Deluxe rooms available?</button>
+        <button class="chip" onclick="sendPrompt('Book room 101 for John')">Book room 101 for John</button>
+        <button class="chip" onclick="sendPrompt('Show all bookings')">Show all bookings</button>
+        <button class="chip" onclick="sendPrompt('Show today\'s bookings')">Show today's bookings</button>
+        <button class="chip" onclick="sendPrompt('Show guest John')">Show guest John</button>
+        <button class="chip" onclick="sendPrompt('Show all rooms')">Show all rooms</button>
+      </div>
+    </div>
+
+    <!-- Chat Area -->
+    <main class="chat-container">
+      <div class="chat-messages" id="chat-messages">
+        <!-- Initial Welcome Message -->
+        <div class="message-row agent-row">
+          <div class="avatar">🏨</div>
+          <div class="message-bubble agent-bubble">
+            <div class="message-text">
+              Hello! I am your <strong>Hotel Management AI Agent</strong>. How can I assist you today?
+              <br/><br/>
+              I can check room availability, book rooms for guests, review existing bookings, cancel reservations, and lookup guest or room details.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input Area -->
+      <footer class="chat-input-area">
+        <form id="chat-form" onsubmit="handleFormSubmit(event)">
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="user-input"
+              placeholder="Type your hotel request (e.g. 'Show available rooms' or 'Book room 101 for John')..."
+              autocomplete="off"
+              required
+            />
+            <button type="submit" id="send-btn" title="Send message">
+              <span>Send</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </footer>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

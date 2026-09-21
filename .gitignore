@@ -1,0 +1,19 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Database
+*.sqlite3
+*.db
+!hotel.db
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/
